@@ -1,0 +1,742 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background-color: #f3f5f3;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+    background-color: #2e462e;
+    color: white;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #cce5cc;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+}
+
+/* ===== TOUR GRID ===== */
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.tour-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.tour-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tour-card h3 {
+    color: #2e462e;
+    font-size: 1.2rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.tour-card .price {
+    color: #365036;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-block;
+    background-color: #2e462e;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #3e5f3e;
+}
+
+.btn.secondary {
+    background-color: #4b654b;
+}
+
+.btn.secondary:hover {
+    background-color: #5d7a5d;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 4px;
+    border-radius: 6px;
+    background-color: #2e462e;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.pagination a.active {
+    background-color: #4b654b;
+}
+
+.pagination a:hover {
+    background-color: #3e5f3e;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #2e462e;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+}
+
+/* ===== SUCCESS & ERROR MESSAGES ===== */
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    text-align: center;
+    border: 1px solid #f5c6cb;
+}
+
+/* ===== CART PAGE STYLING ===== */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.cart-table th,
+.cart-table td {
+    text-align: center;
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.cart-table th {
+    background-color: #2e462e;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cart-table tr:hover {
+    background-color: #f9faf9;
+}
+
+.cart-table img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Quantity buttons */
+.qty-btn {
+    background-color: #4b654b;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.qty-btn:hover {
+    background-color: #365036;
+}
+
+.cart-table span {
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Remove button */
+.btn.danger {
+    background-color: #c62828;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.btn.danger:hover {
+    background-color: #a51919;
+}
+
+/* Proceed button */
+.btn.proceed {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 1rem;
+    padding: 12px 32px;
+    background-color: #2e462e;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn.proceed:hover {
+    background-color: #3c5e3c;
+}
+
+/* Grand total */
+.container p strong {
+    font-size: 1.2rem;
+    color: #2e462e;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .cart-table th, .cart-table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .qty-btn {
+        padding: 4px 8px;
+    }
+    .btn.danger, .btn.proceed {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* === Booking Page Layout Fix === */
+
+.booking-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-container h2 {
+    text-align: center;
+    color: #2f4f23;
+    margin-bottom: 10px;
+}
+
+.booking-container h3 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+.booking-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.booking-container table th,
+.booking-container table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.booking-container table th {
+    background-color: #2f4f23;
+    color: #fff;
+}
+
+.booking-container table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Form should be stacked vertically */
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 30px auto 0 auto;
+    gap: 15px;
+}
+
+.booking-form label {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.booking-form input,
+.booking-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.booking-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Confirm Booking button */
+.booking-form .btn.proceed {
+    background-color: #2f4f23;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.booking-form .btn.proceed:hover {
+    background-color: #3b6b2d;
+}
+
+/* Divider line */
+.booking-container hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 2px solid #2f4f23;
+}
+
+/* Total text */
+.booking-container p strong {
+    font-size: 16px;
+}
+
+/* Success message (confirmation screen) */
+.success {
+    background-color: #e6f4e6;
+    border: 1px solid #2f4f23;
+    color: #2f4f23;
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+/* Ensure footer stays at the bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Let main content take available space */
+main {
+    flex: 1;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2f4f2f;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 14px;
+}
+
+/* --- Sticky Footer Fix (no HTML changes needed) --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* === Tour Details Page === */
+.tour-details-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.tour-image-container {
+    text-align: center;
+}
+
+.tour-image-container img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.tour-info-header {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.tour-info-header h1 {
+    color: #2f4f2f;
+    margin-bottom: 15px;
+}
+
+.tour-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    color: #333;
+}
+
+.about-section {
+    background-color: #fff;
+    padding: 25px;
+    margin: 40px auto;
+    border-radius: 12px;
+    max-width: 900px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+    color: #2f4f2f;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.about-section p {
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+}
+
+.tour-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tour-actions .btn {
+    background-color: #2f4f2f;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.tour-actions .btn:hover {
+    background-color: #3b6b2d;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main, .container {
+    flex: 1;
+}
+
+footer {
+    background-color: #2e462e;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.confirmation-box {
+    background: #e8f5e9;
+    color: #2e462e;
+    border-left: 5px solid #2e462e;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .tours-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-menu {
+        flex-direction: column;
+    }
+    .tour-card img {
+        width: 100%;
+    }
+}
+
+.btn.danger {
+    background-color: #b33;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.danger:hover {
+    background-color: #800;
+}
+
+./* Admin tours accordion */
+.tour-card-admin {
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.tour-header {
+    background: #2e462e;
+    color: #fff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tour-header .arrow {
+    font-size: 0.9rem;
+}
+
+.tour-body {
+    padding: 16px;
+    background: #f7f7f7;
+}
+
+.admin-form .field-group {
+    margin-bottom: 10px;
+}
+
+.admin-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form textarea {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.admin-form textarea {
+    resize: vertical;
+}
+
+.admin-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Pagination styling for admin tours */
+.admin-pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.admin-pagination a,
+.admin-pagination span {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 3px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.admin-pagination a {
+    background: #2e462e;
+    color: #fff;
+}
+
+.admin-pagination a.active {
+    background: #1f311f;
+}
+
+.admin-pagination span.disabled {
+    background: #cccccc;
+    color: #666666;
+}
+
+.tour-filters {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.tour-filters input,
+.tour-filters select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.tour-filters .btn {
+    padding: 8px 14px;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* change if needed */
+    overflow: hidden;
+}
+
+.slideshow-container img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slideshow-container img:first-child {
+    opacity: 1;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slideshow-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow-container img.active {
+    opacity: 1;
+}
+
+
+
